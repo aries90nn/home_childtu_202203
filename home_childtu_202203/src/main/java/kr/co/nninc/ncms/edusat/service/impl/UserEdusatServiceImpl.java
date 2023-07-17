@@ -20,12 +20,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
-import kcb.module.v3.crypto.symmetric.ARIA;
-import kr.co.nninc.ncms.board.service.BoardDTO;
+//import kcb.module.v3.crypto.symmetric.ARIA;
+//import kr.co.nninc.ncms.board.service.BoardDTO;
 import kr.co.nninc.ncms.common.FileDTO;
 import kr.co.nninc.ncms.common.FileUtil;
 import kr.co.nninc.ncms.common.Func;
-import kr.co.nninc.ncms.common.FuncThumb;
+//import kr.co.nninc.ncms.common.FuncThumb;
 import kr.co.nninc.ncms.common.Paging;
 import kr.co.nninc.ncms.common.service.MessageService;
 import kr.co.nninc.ncms.common.service.SelectDTO;
