@@ -1,0 +1,55 @@
+{
+"RESULT_INFO":"SUCCESS",
+"LIST_DATA":[
+{
+"CLASS_NO":"000",
+"CLASS_DESC":"총류(總類) General works",
+"LOAN_CNT":78
+},
+{
+"CLASS_NO":"100",
+"CLASS_DESC":"철학(哲學) Philosophy",
+"LOAN_CNT":112
+},
+{
+"CLASS_NO":"200",
+"CLASS_DESC":"종교(宗敎) Religion",
+"LOAN_CNT":51
+},
+{
+"CLASS_NO":"300",
+"CLASS_DESC":"사회과학(社會科學) Social sciences",
+"LOAN_CNT":334
+},
+{
+"CLASS_NO":"400",
+"CLASS_DESC":"자연과학(自然科學) Natural science",
+"LOAN_CNT":1276
+},
+{
+"CLASS_NO":"500",
+"CLASS_DESC":"기술과학 Technology",
+"LOAN_CNT":63
+},
+{
+"CLASS_NO":"600",
+"CLASS_DESC":"예술(藝術) Arts",
+"LOAN_CNT":68
+},
+{
+"CLASS_NO":"700",
+"CLASS_DESC":"언어(言語) Language",
+"LOAN_CNT":26
+},
+{
+"CLASS_NO":"800",
+"CLASS_DESC":"문학(文學) Literature",
+"LOAN_CNT":869
+},
+{
+"CLASS_NO":"900",
+"CLASS_DESC":"역사(歷史) History",
+"LOAN_CNT":107
+}
+]
+}

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="extenddao_mp">
+		
+	<!-- 데이터 한개 가져오기 mssql -->
+	<select id="getColumn" resultType="String" parameterType="java.util.HashMap">
+		SELECT TOP 1 ${exColumn} FROM ${exTableName} ${exWhereQuery} ${exGroupByQuery}
+		<choose>
+			<when test="exOrderByQuery == 'random'">
+				order by newid()
+			</when>
+			<otherwise>
+				${exOrderByQuery}
+			</otherwise>
+		</choose>
+	</select>
+	
+	
+	
+	<!-- 레코드 가져오기 mssql -->
+	<select id="getRecord" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+		SELECT
+		<if test="exRecordCount != 0">
+			TOP ${exRecordCount}
+		</if>
+		<choose>
+			<when test="exColumn != ''">
+				${exColumn}
+			</when>
+			<otherwise>
+				*
+			</otherwise>
+		</choose>
+		FROM ${exTableName} ${exWhereQuery} ${exGroupByQuery}
+		<choose>
+			<when test="exOrderByQuery == 'random'">
+				order by newid()
+			</when>
+			<otherwise>
+				${exOrderByQuery}
+			</otherwise>
+		</choose>
+	</select>
+	
+	
+	<!-- 페이지 가져오기 mssql -->
+	<select id="getPage" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+		SELECT TOP ${exRecordCount}
+		<choose>
+			<when test="exColumn != ''">
+				${exColumn}
+			</when>
+			<otherwise>
+				*
+			</otherwise>
+		</choose>
+		FROM ${exTableName}
+		${exWhereQuery}
+		<choose>
+			<when test="exWhereQuery == ''">
+				WHERE
+			</when>
+			<otherwise>
+				AND
+			</otherwise>
+		</choose>
+		${exKeyColumn} NOT IN (SELECT TOP ${exStartCount} ${exKeyColumn} FROM ${exTableName} ${exWhereQuery} ${exGroupByQuery} ${exOrderByQuery})
+		${exGroupByQuery}
+		${exOrderByQuery}
+	</select>
+	
+	
+	
+	<!-- insert -->
+	<insert id="insert" parameterType="java.util.HashMap">
+		INSERT INTO ${exTableName}(
+		<foreach item="value" index="key" collection="_parameter.entrySet()" separator=",">
+			<choose>
+				<when test="key == 'serialVersionUID'"></when>
+				<when test="key == 'exTableName'"></when>
+				<when test="key == 'exWhereQuery'"></when>
+				<when test="key == 'exGroupByQuery'"></when>
+				<when test="key == 'exOrderByQuery'"></when>
+				<when test="key == 'exColumn'"></when>
+				<when test="key == 'exColumnNameCase'"></when>
+				<when test="key == 'exKeyColumn'"></when>
+				<when test="key == 'exRecordCount'"></when>
+				<when test="key == 'exPage'"></when>
+				<when test="key == 'exStartCount'"></when>
+				<when test="key == 'exEndCount'"></when>
+				<when test="value == null"></when>
+				<otherwise>
+					${key}
+				</otherwise>
+			</choose>
+			
+		</foreach>
+		) VALUES(
+		<foreach item="value" index="key" collection="_parameter.entrySet()" separator=",">
+			<choose>
+				<when test="key == 'serialVersionUID'"></when>
+				<when test="key == 'exTableName'"></when>
+				<when test="key == 'exWhereQuery'"></when>
+				<when test="key == 'exGroupByQuery'"></when>
+				<when test="key == 'exOrderByQuery'"></when>
+				<when test="key == 'exColumn'"></when>
+				<when test="key == 'exColumnNameCase'"></when>
+				<when test="key == 'exKeyColumn'"></when>
+				<when test="key == 'exRecordCount'"></when>
+				<when test="key == 'exPage'"></when>
+				<when test="key == 'exStartCount'"></when>
+				<when test="key == 'exEndCount'"></when>
+				<when test="value == null"></when>
+				<otherwise>
+					<choose>
+						<when test="value.length() >= 8 and value.substring(0, 8).equals('!noquot;')">${value.substring(8)}</when>
+						<otherwise>#{value}</otherwise>
+					</choose>
+				</otherwise>
+			</choose>
+		</foreach>
+		)
+	</insert>
+	
+	
+	<!-- update -->
+	<update id="update" parameterType="java.util.HashMap">
+		UPDATE ${exTableName} SET
+		<foreach item="value" index="key" collection="_parameter.entrySet()" separator=",">
+			<choose>
+				<when test="key == 'serialVersionUID'"></when>
+				<when test="key == 'exTableName'"></when>
+				<when test="key == 'exWhereQuery'"></when>
+				<when test="key == 'exGroupByQuery'"></when>
+				<when test="key == 'exOrderByQuery'"></when>
+				<when test="key == 'exColumn'"></when>
+				<when test="key == 'exColumnNameCase'"></when>
+				<when test="key == 'exKeyColumn'"></when>
+				<when test="key == 'exRecordCount'"></when>
+				<when test="key == 'exPage'"></when>
+				<when test="key == 'exStartCount'"></when>
+				<when test="key == 'exEndCount'"></when>
+				<when test="value == null"></when>
+				<otherwise>
+					<choose>
+						<when test="value.length() >= 8 and value.substring(0, 8).equals('!noquot;')">${key} = ${value.substring(8)}</when>
+						<otherwise>${key} = #{value}</otherwise>
+					</choose>
+				</otherwise>
+			</choose>
+		</foreach>
+		${exWhereQuery}
+	</update>
+	
+	
+	<!-- delete -->
+	<delete id="delete" parameterType="java.util.HashMap">
+		DELETE FROM ${exTableName} ${exWhereQuery}
+	</delete>
+	
+	<!-- query 실행 -->
+	<update id="executeQuery" parameterType="java.util.HashMap">
+		${sql}
+	</update>
+	
+</mapper>

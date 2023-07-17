@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="extenddao_mp">
+	
+	<!-- 데이터 한개 가져오기 oracle -->
+	<select id="getColumn" resultType="String" parameterType="java.util.HashMap">
+	
+		<choose>
+			<when test="exTableName == 'dual' or exTableName == 'DUAL'">
+				SELECT ${exColumn} FROM ${exTableName}
+			</when>
+			<otherwise>
+				SELECT * FROM ( SELECT tmp1.*, rownum as rnum FROM (SELECT
+				${exColumn}
+				FROM ${exTableName} ${exWhereQuery} ${exGroupByQuery}
+					<choose>
+						<when test="exOrderByQuery == 'random'">
+							order by dbms_random.random
+						</when>
+						<otherwise>
+							${exOrderByQuery}
+						</otherwise>
+					</choose>
+					) tmp1 )
+				WHERE rnum = 1
+			</otherwise>
+		</choose>
+
+	</select>
+	
+		
+	
+	<!-- 레코드 가져오기 oracle -->
+	<select id="getRecord" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+	
+		SELECT * FROM ( SELECT tmp1.*, rownum as rnum FROM (SELECT
+		<choose>
+			<when test="exColumn != ''">
+				${exColumn}
+			</when>
+			<otherwise>
+				*
+			</otherwise>
+		</choose>
+		FROM ${exTableName} ${exWhereQuery} ${exGroupByQuery}
+			<choose>
+				<when test="exOrderByQuery == 'random'">
+					order by dbms_random.random
+				</when>
+				<otherwise>
+					${exOrderByQuery}
+				</otherwise>
+			</choose> 
+		) tmp1 )
+		<if test="exRecordCount != 0">
+		WHERE rnum <![CDATA[>]]> 0 AND rnum <![CDATA[<]]>= ${exRecordCount}
+		</if>
+	
+	</select>
+	
+	
+	
+	
+	<!-- 페이지 가져오기 oracle -->
+	<select id="getPage" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+	
+		SELECT * FROM ( SELECT tmp1.*, rownum as rnum FROM (SELECT
+		<choose>
+			<when test="exColumn != ''">
+				${exColumn}
+			</when>
+			<otherwise>
+				*
+			</otherwise>
+		</choose>
+		FROM ${exTableName} ${exWhereQuery} ${exGroupByQuery} ${exOrderByQuery}) tmp1 )
+		WHERE rnum <![CDATA[>]]> ${exStartCount} AND rnum <![CDATA[<]]>= ${exEndCount}
+	
+	</select>
+	
+	
+	<!-- insert -->
+	<insert id="insert" parameterType="java.util.HashMap">
+		INSERT INTO ${exTableName}(
+		<foreach item="value" index="key" collection="_parameter.entrySet()" separator=",">
+			<choose>
+				<when test="key == 'serialVersionUID'"></when>
+				<when test="key == 'exTableName'"></when>
+				<when test="key == 'exWhereQuery'"></when>
+				<when test="key == 'exGroupByQuery'"></when>
+				<when test="key == 'exOrderByQuery'"></when>
+				<when test="key == 'exColumn'"></when>
+				<when test="key == 'exColumnNameCase'"></when>
+				<when test="key == 'exKeyColumn'"></when>
+				<when test="key == 'exRecordCount'"></when>
+				<when test="key == 'exPage'"></when>
+				<when test="key == 'exStartCount'"></when>
+				<when test="key == 'exEndCount'"></when>
+				<when test="value == null"></when>
+				<otherwise>
+					${key}
+				</otherwise>
+			</choose>
+			
+		</foreach>
+		) VALUES(
+		<foreach item="value" index="key" collection="_parameter.entrySet()" separator=",">
+			<choose>
+				<when test="key == 'serialVersionUID'"></when>
+				<when test="key == 'exTableName'"></when>
+				<when test="key == 'exWhereQuery'"></when>
+				<when test="key == 'exGroupByQuery'"></when>
+				<when test="key == 'exOrderByQuery'"></when>
+				<when test="key == 'exColumn'"></when>
+				<when test="key == 'exColumnNameCase'"></when>
+				<when test="key == 'exKeyColumn'"></when>
+				<when test="key == 'exRecordCount'"></when>
+				<when test="key == 'exPage'"></when>
+				<when test="key == 'exStartCount'"></when>
+				<when test="key == 'exEndCount'"></when>
+				<when test="value == null"></when>
+				<otherwise>
+					<choose>
+						<when test="value.length() >= 8 and value.substring(0, 8).equals('!noquot;')">${value.substring(8)}</when>
+						<otherwise>#{value}</otherwise>
+					</choose>
+				</otherwise>
+			</choose>
+		</foreach>
+		)
+	</insert>
+	
+	
+	<!-- update -->
+	<update id="update" parameterType="java.util.HashMap">
+		UPDATE ${exTableName} SET
+		<foreach item="value" index="key" collection="_parameter.entrySet()" separator=",">
+			<choose>
+				<when test="key == 'serialVersionUID'"></when>
+				<when test="key == 'exTableName'"></when>
+				<when test="key == 'exWhereQuery'"></when>
+				<when test="key == 'exGroupByQuery'"></when>
+				<when test="key == 'exOrderByQuery'"></when>
+				<when test="key == 'exColumn'"></when>
+				<when test="key == 'exColumnNameCase'"></when>
+				<when test="key == 'exKeyColumn'"></when>
+				<when test="key == 'exRecordCount'"></when>
+				<when test="key == 'exPage'"></when>
+				<when test="key == 'exStartCount'"></when>
+				<when test="key == 'exEndCount'"></when>
+				<when test="value == null"></when>
+				<otherwise>
+					<choose>
+						<when test="value.length() >= 8 and value.substring(0, 8).equals('!noquot;')">${key} = ${value.substring(8)}</when>
+						<otherwise>${key} = #{value}</otherwise>
+					</choose>
+				</otherwise>
+			</choose>
+		</foreach>
+		${exWhereQuery}
+	</update>
+	
+	
+	<!-- delete -->
+	<delete id="delete" parameterType="java.util.HashMap">
+		DELETE FROM ${exTableName} ${exWhereQuery}
+	</delete>
+	
+	<!-- query 실행 -->
+	<update id="executeQuery" parameterType="java.util.HashMap">
+		${sql}
+	</update>
+	
+	
+	<!-- clob 데이터 한개 가져오기 oracle -->
+	<select id="getClobColumn" resultType="kr.co.nninc.ncms.common.service.ClobSelectDTO" parameterType="java.util.HashMap">
+	
+		SELECT ${exColumn} as exClobField FROM ${exTableName} ${exWhereQuery} and rownum = 1
+
+	</select>
+	
+	<!-- ########################## 부가기능시작 ##########################-->
+	
+	<!-- 테이블명 검색 카운트 -->
+	<select id="searchTableCount" resultType="int" parameterType="java.util.HashMap">
+		SELECT count(*) as cnt FROM user_tables WHERE upper(TABLE_NAME) = upper(#{table_name})
+	</select>
+	
+	<!-- 통계테이블 생성 -->
+	<insert id="createVisitTable" parameterType="java.util.HashMap">
+	CALL procCreateVCounter(#{table_name}, #{tablename_small})
+	</insert>
+	
+	<!-- 빌더사이트 통계테이블 생성 -->
+	<insert id="createBuilderSiteVisitTable" parameterType="java.util.HashMap">
+	CALL procCreateVCounterSite(#{table_name}, #{tablename_small})
+	</insert>
+	
+	<!-- 메뉴통계테이블 생성 -->
+	<insert id="createMenuTable" parameterType="java.util.HashMap">
+	CALL procCreateMCounter(#{table_name}, #{tablename_small})
+	</insert>
+	
+	<!-- 세션 -->
+	<resultMap id="sessionStatusMap" type="hashmap"></resultMap>
+	<select id="procSessionWait" parameterType="string" statementType="CALLABLE">
+		CALL procSessionWait(
+			#{session_id}
+			,#{status, mode=OUT, jdbcType=VARCHAR, javaType=java.lang.String, resultMap=sessionStatusMap}
+			,#{wait_time, mode=OUT, jdbcType=VARCHAR, javaType=java.lang.String, resultMap=sessionStatusMap}
+		)
+	</select>
+	
+	<!-- //########################## 부가기능끝 ########################## -->
+	
+</mapper>

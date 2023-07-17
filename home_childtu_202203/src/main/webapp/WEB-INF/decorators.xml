@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<decorators defaultdir="/WEB-INF/jsp/nanum">
+	<excludes>
+		<pattern>/board/**</pattern>
+		<pattern>/member/*Ok.do*</pattern>
+		<pattern>/ncms/cms/*</pattern>
+		<pattern>/smarteditor/*</pattern>
+		<pattern>/ncms/manual/*</pattern>
+		<pattern>/member/idchk.do*</pattern>
+		<pattern>/blank/**</pattern>
+	</excludes>
+	
+	<!-- 템플릿페이지(사용자용) -->
+	<decorator name="user_content" page="/WEB-INF/jsp/nanum/site/template.jsp">
+		<pattern>/contents.do*</pattern>
+		<pattern>/cms/preview.do*</pattern>
+		<pattern>/site/**</pattern>
+	</decorator>
+	
+	<!-- 템플릿페이지(회원가입용) -->
+	<!-- 
+	<decorator name="member_content" page="/WEB-INF/jsp/nanum/site/template_member.jsp">
+		<pattern>/member/**</pattern>
+	</decorator>
+	 -->
+	
+	<!-- 템플릿페이지(관리자용) -->
+	<decorator name="ncms_content" page="/WEB-INF/jsp/nanum/ncms/template.jsp">
+		<pattern>/ncms/*/list.do*</pattern>
+		<pattern>/ncms/*/write.do*</pattern>
+		<pattern>/ncms/*/view.do*</pattern>
+	</decorator>
+	
+	<!-- 템플릿페이지 -->
+	<decorator name="history_content" page="/WEB-INF/jsp/nanum/ncms/history.jsp">
+		<pattern>/history/**</pattern>
+	</decorator>
+	
+	<!-- 템플릿페이지(빌더사이트관리자용) -->
+	<decorator name="bs_ncms_content" page="/WEB-INF/jsp/nanum/site/builder/ncms/template.jsp">
+		<pattern>/*/ncms/*/list.do*</pattern>
+		<pattern>/*/ncms/*/write.do*</pattern>
+		<pattern>/*/ncms/*/view.do*</pattern>
+		<pattern>/*/ncms/site/**</pattern>
+	</decorator>
+
+</decorators>

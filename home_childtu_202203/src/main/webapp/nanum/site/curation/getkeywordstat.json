@@ -1,0 +1,29 @@
+{
+"RESULT_INFO":"SUCCESS",
+"LIST_DATA":[
+{
+"KEYWORD":" 소설 ",
+"COUNT":100
+},
+{
+"KEYWORD":" 김지영 ",
+"COUNT":20
+},
+{
+"KEYWORD":" 수필 ",
+"COUNT":30
+},
+{
+"KEYWORD":" 당뇨 ",
+"COUNT":20
+},
+{
+"KEYWORD":" 수학 ",
+"COUNT":35
+},
+{
+"KEYWORD":" 문학 ",
+"COUNT":40
+}
+]
+}

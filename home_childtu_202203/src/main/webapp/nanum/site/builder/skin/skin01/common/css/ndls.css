@@ -1,0 +1,59 @@
+@charset "utf-8";
+
+/************공통 스타일************/
+.btn_w{width:100%;padding-top:35px;text-align:center;}
+
+
+/************통합자료검색************/
+#ndlsbox .search_style .search .input input {width: 100%; padding: 0 15px;  height: 45px;  line-height: 45px;  border: 3px solid #f76258;  border-right: 0 none;  box-sizing: border-box;  cursor: text;}
+#ndlsbox .search_style .btn-search {position: absolute; top: 0; right: 0px; width: 45px; height: 45px; line-height: 45px; color: #fff;  font-size: 0;  border: 0;  background: #f76258 url(/nanum/ndls/imgs/common/search_btn2.png) no-repeat center 50%;
+    border-radius: 0;  cursor: pointer;  outline: none;}
+
+
+/************기본 버튼************/
+ /*확인*/
+.ndls_btn {background:#f76258; color:#fff !important; display:inline-block;margin:0 3px;line-height:45px;font-size:15px;text-align:center;padding:0 30px;vertical-align:middle;cursor:pointer;border:0 none;} /*확인*/
+.ndls_btn:hover {background:#f76258;}
+/*취소*/
+.cancel_btn {background:#a2a2a2; display: inline-block; color:#fff !important; height: 45px; margin: 0 3px;line-height: 45px; font-size: 15px; text-align: center;  padding: 0 30px;  vertical-align: middle;  cursor: pointer; border: 0 none;} /*취소*/
+/*목록*/
+.list_btn {background:#a2a2a2; color:#fff !important; display: inline-block; height: 45px; margin: 0 3px;  line-height: 45px; font-size: 15px; text-align: center;  padding: 0 30px;  vertical-align: middle;  cursor: pointer;  border: 0 none;}
+/*수정*/
+.edit_btn {background:#a2a2a2; color:#fff !important; display: inline-block; height: 45px; margin: 0 3px;  line-height: 45px; font-size: 15px; text-align: center;  padding: 0 30px;  vertical-align: middle;  cursor: pointer;  border: 0 none;}
+
+/*일반 검색 버튼-문화행사 */
+.search_btn {background:#1fb89d; color:#fff; width: 100px; height: 42px;  margin-top: 2px; font-size: 13px; }
+
+/*회원정보폼 검색,확인 아이디버튼*/
+/*a.con_sbtn,
+input.con_sbtn{background:#a2a2a2; color:#fff; display:inline-block;margin:0 3px; padding:10px 15px; font-weight:normal;font-family:'NotoKrM';font-size:13px;line-height:normal;vertical-align:middle;text-align:center;cursor:pointer;border:0;letter-spacing:-0.05em;}*/
+
+/*멤버십 버튼*/
+.memberbox .box .btn .con_btn {background:#f76258; color:#fff;} 
+
+/*a.con_btn,
+input.con_btn{color:#fff; display:inline-block;margin:0 3px;padding:12px 25px 13px 25px; font-weight:normal;font-family:'NotoKrM';font-size:15px;line-height:normal;vertical-align:middle;text-align:center;cursor:pointer;border:0;letter-spacing:-0.05em;}*/
+
+
+
+
+/******************************모바일******************************/
+@media(max-width:736px){
+	
+/************통합자료검색************/
+#ndlsbox .search_style .search .input input {width:100%;}
+#ndlsbox .search_style .btn-search{width:50px;font-size:0;}
+
+
+/************기본 버튼************/
+.ndls_btn,
+.cancel_btn,
+.list_btn,
+.edit_btn {height: auto; font-size:14px; line-height: 120%; padding: 10px 20px;}
+
+/*멤버십 버튼*/
+a.con_sbtn, input.con_sbtn {padding: 10px 12px; font-size: 12px;}
+a.con_btn,
+input.con_btn {padding: 11px 16px; font-size: 14px;}
+
+}

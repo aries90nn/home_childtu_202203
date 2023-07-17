@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+
+/*순서일괄수정*/
+.sortable {min-height:20px; padding:8px 0px; border:1px solid #e5e5e5; border-left:none; border-right:none; border-top:none; line-height:16px; vertical-align:middle; text-align:left;}
+
+.sortable li {
+	clear:both;
+	list-style: none;
+	background: #fff;
+	border: 1px solid #CCC;
+	font-family: "Tahoma";
+	margin: 5px 5px;
+	padding: 5px;
+}
+.sortable li{
+	height: 60px;
+}
+
+.sortable p.img{
+	float:left; width:75px;
+}
+.sortable p.text{
+	float:left; line-height:160%; text-overflow:ellipsis; overflow:hidden; white-space:nowrap;
+}
+.sortable p.text2{
+	float:left; line-height:160%; width:220px; ;
+}
+
+li.disabled {
+	opacity: 0.5;
+}
+li.highlight {
+	background: #FEE25F;
+}
+li.sortable-placeholder {
+	border: 1px dashed #CCC;
+	background: #dddddd;
+}
+
+.ds-buttons {
+    display: none;
+    position: absolute;
+    right: 10px;
+	float:right;
+    z-index: 110;
+    height: 20px;
+
+}
+.ds-buttons a {
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+}
+.ds-buttons .btn_up {
+	background: url('/nanum/ncms/img/common/btn_up.png');
+}
+.ds-buttons .btn_dn {
+    background-position: -132px -279px;
+	background: url('/nanum/ncms/img/common/btn_down.png');
+}
+.ds-buttons .btn_top {
+    background-position: -206px -279px;
+	background: url('/nanum/ncms/img/common/btn_t_up.png');
+}
+.ds-buttons .btn_bottom {
+    background-position: -206px -205px;
+	background: url('/nanum/ncms/img/common/btn_t_down.png');
+}
+.blind{visibility:hidden;overflow:hidden;position:absolute;top:0;left:0;width:0;height:0;font-size:0;line-height:0}
+.section_card{overflow-y:scroll;float:left;position:relative;width:345px;height:650px;margin-right:28px; background-color:#fff}

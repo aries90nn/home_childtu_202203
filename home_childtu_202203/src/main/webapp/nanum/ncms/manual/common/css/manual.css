@@ -1,0 +1,104 @@
+@charset "utf-8";
+@import url(NotoKr.css);
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+html, body, div, span, object, iframe,
+p, blockquote, pre,
+a, abbr, address, big, cite, code,
+del, dfn, em, font, ins, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, h1, h2, h3, h4, h5, h6,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, 
+table, caption, tbody, tfoot, thead, tr, th, td 
+{margin:0; padding:0; border:0;}
+
+img, input.type-image { border: 0 none; }
+ol, ul, li {list-style:none;}
+blockquote, q {quotes:none;}
+ins {text-decoration:none;}
+del {text-decoration:line-through;}
+table {border-spacing:0;} 
+address,caption,cite,code,dfn,em,strong,th,var {font-style:normal;}
+select{font-size: 1em;}
+.radio {margin-bottom:-2px;}
+
+hr {display: none;}
+legend {visibility:hidden; display:none; height:0; width:0; font-size:0;}
+noscript{display:none;}
+caption{visibility:hidden; height:0; width:0; font-size:0;}
+
+a, a:link {color: #555; text-decoration: none; cursor: pointer; }
+a:visited {color: #555;}
+a:hover, a:active, a:focus {color: #333; text-decoration:none;}
+h2,h3,h4{font-weight:normal;}
+strong{font-weight:normal;color:#222;font-family:'NotoKrM', sans-serif;}
+
+
+/*********************************** 레이아웃 ***********************************/
+body{font-size:75%;font-family:'NotoKrR', sans-serif;color:#333;}
+#wrapper{width:100%;min-width:1100px;}
+.area{width:1100px;margin:0 auto;}
+
+
+/********* 상단영역 *********/
+#head{width:100%;min-width:1100px;height:76px;background:#444;}
+#head h1{float:left;font-size:0;line-height:0;padding-top:30px;}
+#menu{float:right;}
+#menu ul li{float:left;margin-left:60px;font-size:0;line-height:0;}
+#menu ul li:first-child{margin-left:0;}
+
+
+/********* 중간영역 *********/
+#container{position:absolute;top:76px;right:0;bottom:40px;left:0;width:100%;min-width:1100px;background:#fff;overflow:hidden;}
+#sidemenu{text-align:center;height:58px;border-bottom:1px solid #d1d1d1;}
+#sidemenu ul{font-size:0;}
+#sidemenu ul li{display:inline-block;*display:inline;*zoom:1;margin:0 20px;}
+#sidemenu ul li a{display:block;font-size:15px;color:#999;letter-spacing:-1px;padding:19px 0 18px 0;}
+#sidemenu ul li a:hover,
+#sidemenu ul li a.on{color:#222;padding:19px 0 16px 0;border-bottom:3px solid #2bc1ff;}
+
+#contents{position:absolute;top:59px;right:0;bottom:0;left:0;}
+h2.cont_title{padding:45px 0 15px 0;color:#222;font-size:25px;font-family:'NotoKrB', sans-serif;letter-spacing:-1px;border-bottom:1px solid #dfdfdf;}
+#cont_wrap{padding:35px 0 60px 0;letter-spacing:-1px;}
+.quick{position:fixed;top:195px;left:50%;margin-left:590px;text-align:center;}
+.quick .tip{font-size:0;line-height:0;}
+.quick .top{display:inline-block;width:55px;}
+.quick .top a{display:block;margin-top:35px;width:55px;height:32px;padding-top:23px;color:#000;font-size:11px;font-family:'Open Sans', sans-serif;border-radius:100%;box-shadow:0 0 5px #999;background:#fff url(/nanum/ncms/manual/img/common/top.gif) no-repeat center 16px;}
+.quick .top a:hover{box-shadow:0 0 5px #666;}
+
+/********* 하단영역 *********/
+#foot{position:absolute;bottom:0;width:100%;min-width:1100px;height:39px;line-height:39px;text-align:center;font-family:'Open Sans', sans-serif;letter-spacing:1px;color:#919191;font-size:11px;border-top:1px solid #ebebeb;background:#fff;}
+
+
+/*********************************** 컨텐츠 ***********************************/
+.section{padding-top:60px;}
+.section:first-child{padding-top:0;}
+
+h3.tit{padding-bottom:20px;color:#555;font-size:18px;font-family:'NotoKrB', sans-serif;}
+h4.tit{padding-top:20px;color:#666;font-size:15px;font-family:'NotoKrM', sans-serif;}
+h4.tit img{vertical-align:middle;margin:0 5px;}
+
+ul.num_list{margin-top:20px;}
+ul.num_list li{font-size:14px;color:#666;line-height:22px;padding-left:32px;margin-bottom:6px;}
+ul.num_list li.num01{background:url(/nanum/ncms/manual/img/common/num01.gif) no-repeat left top;}
+ul.num_list li.num02{background:url(/nanum/ncms/manual/img/common/num02.gif) no-repeat left top;}
+ul.num_list li.num03{background:url(/nanum/ncms/manual/img/common/num03.gif) no-repeat left top;}
+ul.num_list li.num04{background:url(/nanum/ncms/manual/img/common/num04.gif) no-repeat left top;}
+ul.num_list li.num05{background:url(/nanum/ncms/manual/img/common/num05.gif) no-repeat left top;}
+ul.num_list li.num06{background:url(/nanum/ncms/manual/img/common/num06.gif) no-repeat left top;}
+ul.num_list li.num07{background:url(/nanum/ncms/manual/img/common/num07.gif) no-repeat left top;}
+ul.num_list li.num08{background:url(/nanum/ncms/manual/img/common/num08.gif) no-repeat left top;}
+ul.num_list li.num09{background:url(/nanum/ncms/manual/img/common/num09.gif) no-repeat left top;}
+ul.num_list li.num10{background:url(/nanum/ncms/manual/img/common/num10.gif) no-repeat left top;}
+
+.iconbox{margin-top:20px;padding:25px 0 25px 130px;border:2px dashed #d8e3e6;background:#f0f6f8 url(/nanum/ncms/manual/img/common/iconbox_icon.gif) no-repeat 40px 50%;}
+.iconbox dl dt{font-size:17px;font-family:'NotoKrM', sans-serif;color:#07777f;}
+.iconbox dl dd{padding-top:8px;font-size:13px;color:#666;}
+.iconbox dl dd a{color:#222;font-family:'NotoKrM', sans-serif;}
+
+
+
+
+
+

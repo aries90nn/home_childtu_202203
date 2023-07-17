@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/nanum/**" location="/nanum/" />
+	<resources mapping="/data/**" location="/data/" />
+	<resources mapping="/nfu/**" location="/nfu/" />
+	<resources mapping="/nanum/site/img/**" location="/nanum/site/img/" />
+	<resources mapping="/smarteditor/**" location="/smarteditor/" />
+	
+	
+	<interceptors>
+		<!-- 총관리자 접속카운터 인터셉터 -->
+		<interceptor>
+			<mapping path="/ncms/**/*.do"/>
+			<exclude-mapping path="/main_calendar.do"/>
+			<beans:bean id="VisitCountInterceptor" class="kr.co.nninc.ncms.common.VisitCountInterceptor"></beans:bean>
+		</interceptor>
+		<!-- //총관리자 접속카운터 인터셉터 -->
+		<!-- 총관리자 로그인 인터셉터 -->
+		<interceptor>
+			<mapping path="/ncms/**/*.do"/>
+			<mapping path="/ncms/"/>
+			<mapping path="/ncms"/>
+			<exclude-mapping path="/ncms/manual/index.do"/>
+			<exclude-mapping path="/ncms/board_config/mainList.do"/>
+			<exclude-mapping path="/ncms/manual/**/**/**.do"/>
+			<beans:bean id="NcmsInterceptor" class="kr.co.nninc.ncms.common.NcmsInterceptor"></beans:bean>
+		</interceptor>
+		<!-- // 총관리자 로그인 인터셉터 -->
+		
+		
+		<!-- 빌더사이트 접속카운터 인터셉터 -->
+		<interceptor>
+			<mapping path="/*/main.do"/>
+			<mapping path="/*/**/*.do"/>
+			<exclude-mapping path="/error/**"/>
+			<exclude-mapping path="/board/**"/>
+			<exclude-mapping path="/site/**"/>
+			<exclude-mapping path="/blank/**"/>
+			<exclude-mapping path="/ncms/**"/>
+			<exclude-mapping path="/ebook/**"/>
+			<exclude-mapping path="/poll/**"/>
+			<exclude-mapping path="/popup/**"/>
+			<exclude-mapping path="/banner2/**"/>
+			<exclude-mapping path="/cms/**"/>
+			<exclude-mapping path="/smarteditor/**"/>
+			<exclude-mapping path="/*/main/**"/>
+			<exclude-mapping path="/hubService/**"/>
+			<exclude-mapping path="/prop/**"/>
+			<exclude-mapping path="/member/**"/>
+			<beans:bean id="BuilderInterceptor" class="kr.co.nninc.ncms.common.BuilderInterceptor"></beans:bean>
+		</interceptor>
+		<!-- //빌더사이트 접속카운터 인터셉터 -->
+		<!-- 빌더사이트 메인처리파일(ajax등) 인터셉터 -->
+		<interceptor>
+			<mapping path="/*/main/**"/>
+			<beans:bean id="BuilderMainInterceptor" class="kr.co.nninc.ncms.common.BuilderMainInterceptor"></beans:bean>
+		</interceptor>
+		<!-- //빌더사이트 메인처리파일(ajax등) 인터셉터 -->
+		<!-- 빌더사이트 관리자 인터셉터 -->
+		<interceptor>
+			<mapping path="/*/ncms/**/*.do"/>
+			<beans:bean id="BuilderNcmsInterceptor" class="kr.co.nninc.ncms.common.BuilderNcmsInterceptor"></beans:bean>
+		</interceptor>
+		<!-- //빌더사이트 관리자 인터셉터 -->
+	</interceptors>
+	
+	
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/jsp/nanum/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	
+	<context:component-scan base-package="kr.co.nninc" />
+
+</beans:beans>
+
+
+
