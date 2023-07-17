@@ -1,0 +1,61 @@
+html, body, div, span, object, iframe, p, blockquote, pre, a, abbr, address, big, cite, code, del, dfn, em, font, ins, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, h1, h2, h3, h4, h5, h6, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+caption {
+    visibility: hidden;
+    height: 0px;
+    width: 0px;
+    font-size: 0px;
+}
+
+
+ol, ul, li {
+	list-style: none;
+}
+
+
+
+/* 팝업 */
+.popup_top{overflow:hidden;padding:15px 20px;background:#4a76bc;}
+.popup_top .popup_tit{float:left;font-size:20px;color:#fff;}
+.popup_top .popup_close{float:right;margin-top:5px;}
+.popup_con{padding:20px;}
+
+
+
+/* 사물함신청_관리자용 */
+table.tb_locker{width:100%;border-collapse:collapse;border:1px solid #d5d5d5;clear:both;}
+table.tb_locker tbody td{height:50px;padding:10px 5px;border-left:1px solid #d5d5d5;border-bottom:1px solid #d5d5d5;background:#f5f5f5;text-align:center;font-size:12px;color:#555;}
+table.tb_locker tbody td span.locker_date{display:block;margin-bottom:5px;}
+table.tb_locker tbody td ul li{line-height:20px;}
+table.tb_locker tbody td ul li.poss{color:#f00;}
+table.tb_locker tbody td.on{background:#634727;color:#fff;}
+table.tb_locker tbody td.on li.poss{color:#fff;}
+
+
+table {border-spacing:0;}
+select {font-size:12px;}
+input.board_input {height:45px;padding:0 15px;line-height:45px;color:#757575;border:1px solid #d5dbde;cursor:text;background:#fff;}
+input.board_input:focus{border:1px solid #3db6ed;background-color:#f0f7fa;}
+input.board_input_file {width:90%; border:1px solid #cdcdcd; padding:3px 3px 0px 3px; font-size:12px; background:#fff;}
+textarea {border:1px solid #cdcdcd; font-size:12px;}
+.display_none {display:none;}
+
+
+
+
+
+/* Write */
+#board .table_bwrite {clear:both;border-top:1px solid #222;}
+#board .table_bwrite table {width:100%;border-collapse:collapse;font-size:14px;}/*table-layout:fixed;*/
+#board .table_bwrite table caption {font-size:0;line-height:0;position:absolute;top:-5000px;right:-5000px;}
+#board .table_bwrite tbody th {font-weight:normal;padding:15px 20px;font-size:15px;border:1px solid #dfdfdf;background:#f6fafb; color:#222; font-weight:bold; text-align:left;}
+#board .table_bwrite tbody th img {vertical-align:middle; padding-left:5px;}
+#board .table_bwrite tbody td {padding:15px 20px; border:1px solid #dfdfdf; text-align:left;font-size:15px;}
+#board .table_bwrite tbody td input.subject {width:95%;}
+#board .table_bwrite tbody td.content {margin:0; padding-top:4px; padding-bottom:4px; padding-left:0; padding-right:0px; text-align:center;}
+#board .table_bwrite tbody td span.text1 {color:#818181; font-size:0.9em; font-weight:normal; letter-spacing:-0.1em; padding-left:6px;}
+#board .table_bwrite tbody td span.eng {padding-left:0; color:#6a6a6a; font-size: 0.9em; font-weight:normal; letter-spacing:-0.1em;}

@@ -1,0 +1,133 @@
+﻿@charset "utf-8";
+
+/*사업소개*/
+.intro_bx{width:100%;height:240px;border:1px solid #d5d5d5;padding:50px;box-sizing:border-box;background:url(/nanum/site/builder/dir/main/img/menu2584/intro_bg.jpg) no-repeat right 0;}
+.intro_bx p{line-height:1;}
+.intro_bx p.txt{font-size:23px;font-weight:200;}
+.intro_bx p.tit{font-size:30px;font-weight:600;margin:15px 0 24px;}
+.intro_bx span{font-size:17px;font-weight:400;}
+
+.intro_txt{width:100%;padding-left:50px;box-sizing:border-box;border-left:3px solid #ffc600;margin-top: 50px;}
+.intro_txt p.txt{margin-top: 35px;word-break: keep-all;}
+.intro_txt p.txt:first-child{margin-top:0;}
+.intro_txt p.txt:last-child{}
+
+.die ul li{float: left;width: 450px;height: 105px;border: 1px solid #d5d5d5;border-radius: 10px;box-sizing:border-box;}
+.die ul li.on,
+.die ul li:hover{border:1px solid #ffd2a1;box-shadow: 7px 6px 10px rgb(0 0 0 / 20%);background:#ffd2a1;}
+.die ul li a{display: block;line-height: 1;font-size: 18px;color: #222;font-weight: 600;text-align: center;margin-top: 30px;}
+.die ul li a span{display: inline-block;width: 100%;line-height: 1;color: #333;font-weight:500;font-size: 15px;margin-top: 10px;}
+.die img{margin-top:50px;}
+
+.child_traffic{display:inline-block;width:100%;}
+.child_traffic ul{display:inline-block;}
+.child_traffic ul li{float:left;width:50%;line-height:1;font-size: 0;}
+.child_traffic ul li p{color: #fff;font-size: 17px;line-height: 50px;text-align: center;border-radius: 0 0 10px 10px;background: #6fdbf5;}
+.child_traffic ul li.bx2 p{background:#4c81e0;}
+
+
+/*투명우산 나눔활동 프로그램 소개*/
+.probox{margin-top:20px;}
+.probox .bx{display: inline-block;width: 100%;border-bottom: 1px solid #d5d5d5;padding: 40px 0 40px 170px;box-sizing: border-box;}
+.probox .bx p.tit{font-weight: 700;font-size: 20px;line-height: 1;}
+.probox .bx p.txt{font-size:17px;line-height:27px;margin-top:20px;}
+.probox .bx.icon02 p.txt{margin-bottom: 30px;}
+.probox .bx dl{display:inline-block;width:100%;}
+.probox .bx dl.edu{position:relative;padding-left: 58px;}
+.probox .bx dl dt{float:left;color:#ff8b03;font-weight:600;}
+.probox .bx dl.edu dt{position:absolute;left:0;}
+.probox .bx dl dd{float:left;width: 380px;padding-left:15px;}
+.probox .bx.icon01{background: url(/nanum/site/builder/dir/main/img/menu2584/icon_slice01.gif) no-repeat 0 50%;}
+.probox .bx.icon02{background: url(/nanum/site/builder/dir/main/img/menu2584/icon_slice02.gif) no-repeat 0 50%;}
+.probox .bx.icon03{background: url(/nanum/site/builder/dir/main/img/menu2584/icon_slice03.gif) no-repeat 0 50%;}
+
+
+/*투명우산*/
+.hyun{padding: 50px 40px 50px 250px;border: 1px solid #f5e4ab;box-sizing: border-box;word-break: keep-all;background: #f9f5e8 url(/nanum/site/builder/dir/main/img/menu2584/img_umb.png) no-repeat 40px 50%;}
+
+
+/*참여기관 소개*/
+.join_bx .bx{display:inline-block;border-bottom: 1px solid #e5e5e5;padding-bottom: 50px;margin-bottom: 50px;}
+.join_bx .bx .join_logo{float:left;display:inline-block;width:210px;}
+.join_bx .bx .join_logo a{display: block;text-align: center;color: #fff;line-height: 50px;border-radius: 10px;background: #a35c00;}
+.join_bx .bx .join_txt{float: left;width: 640px;margin-left: 50px;}
+.join_bx .bx .join_txt p{font-size:17px;line-height: 29px;}
+
+
+/******************************1024******************************/
+@media all and (max-width:1024px){
+	
+/*사업소개*/
+.intro_bx{height:205px;margin-top:50px;background-size:350px;}
+.intro_bx p.txt{font-size:20px;}
+.intro_bx p.tit{font-size:28px;}
+.intro_bx span{font-size:16px;}
+
+.intro_txt{padding-left:40px;}
+
+.die ul li{width:50%;}
+.die img{width:100%;}	
+
+.accident_child img{width:100%;}
+
+.child_traffic ul li img{width:100%;}
+
+/*참여기관 소개*/
+.join_bx .bx{position: relative;padding-left: 260px;box-sizing: border-box;}
+.join_bx .bx .join_logo{position: absolute;left: 0;}
+.join_bx .bx .join_txt{float: none;width: 100%;margin-left: 0;}
+	
+	
+	
+	
+	
+}
+
+
+
+
+/******************************767******************************/
+@media all and (max-width:767px){
+
+/*사업소개*/
+.intro_bx{height: 300px;padding: 30px 30px 80px 30px;background-position: right bottom;background-size: 280px auto;}
+.intro_bx p.txt{font-size:17px;}
+.intro_bx p.tit{font-size:20px;line-height: 25px;margin: 10px 0 11px;word-break: keep-all;}	
+.intro_bx span{display: inline-block;font-size: 15px;line-height: 22px;}	
+
+.intro_txt{margin-top:30px;}
+.intro_txt p.txt{margin-top:15px;line-height:26px;}
+.intro_txt p.txt:last-child{line-height:26px;}
+	
+.die ul li{width:100%;height:70px;}
+.die ul li a{font-size:15px;margin-top:15px;}
+
+.child_traffic ul li{width:100%;}	
+.child_traffic ul li:last-child{margin-top:10px;}	
+
+.hyun{height:auto;padding: 150px 30px 30px 30px;background-position: 50% 30px;background-size: 100px auto;}
+
+
+/*투명우산 나눔활동 프로그램 소개*/
+.probox .bx{padding:120px 0 20px 0;background-size: 70px auto !important;background-position: 50% 25px !important;}
+.probox .bx p.tit{font-size:17px;}
+.probox .bx p.txt{font-size:15px;line-height:25px;margin-top:10px;}
+.probox .bx.icon02 p.txt{margin:0 0 15px 0;}
+.probox .bx dl{margin-top:15px;}
+.probox .bx dl.edu{display:inline-block;width:100%;padding-left:0;}
+.probox .bx dl dt{float:none;display:inline-block;width:100%;font-size:15px;}
+.probox .bx dl.edu dt{position:static;}
+.probox .bx dl dd{padding-left:0;}
+
+
+/*참여기관 소개*/
+.join_bx .bx{padding: 0 0 20px 0;margin-bottom:20px;}
+.join_bx .bx .join_logo{position: static;float:none;width:100%;text-align:center;}
+.join_bx .bx .join_txt{float:none;width:100%;margin: 15px 0 0 0;}
+.join_bx .bx .join_txt p{font-size:15px;line-height:26px;}
+	
+	
+	
+	
+	
+}

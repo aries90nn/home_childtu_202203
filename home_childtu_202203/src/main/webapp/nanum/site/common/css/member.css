@@ -1,0 +1,296 @@
+@charset "utf-8";
+/***모바일에서 본인인증이 안될경우 [해결방법] 안내문구***/
+.cash_box{display:none;}
+
+/***로그인&아이디비밀번호찾기 공통박스***/
+.member_box{position:relative; clear:both;margin-top:65px;display:inline-block; width:100%; height:auto;}
+.member_box .tit{font-size:30px;color:#222;line-height:1.2;}
+.member_box .txt{font-size:15px;color:#555;padding-top:25px;}
+.member_box .area{width:390px;margin:0 auto;box-sizing:border-box;}
+.member_box .area p{position:relative;margin-bottom:10px;}
+.member_box .area p input{width:100%;height:48px;line-height:48px;font-size:14px;padding:0 60px 0 30px; border:1px solid #e5e5e5; border-radius:50px; background:url(/nanum/site/builder/skin/common/img/login_pw.png) no-repeat right 50%; box-sizing:border-box;}
+.member_box .area p:first-child input{background:url(/nanum/site/builder/skin/common/img/login_id.png) no-repeat right 50%}
+.member_box .area p input:focus{border:1px solid #222;background:#f8f8f8;}
+.member_box .area p label{position:absolute;top:0;left:30px;height:48px;line-height:48px;font-size:14px;font-style:italic;color:#999;}
+.member_box .area input.inp_btn,
+.member_box .area a.inp_btn{display:inline-block;width:100%;line-height:50px;border:none;border-radius:50px;margin:0;color:#fff;font-size: 17px;letter-spacing:-2px;background: #ffc600;}
+
+
+/***로그인***/
+.book_tab_wrap{position:relative;margin:0 auto;width:530px;height:338px;background:#fff;border:1px solid #e5e5e5;border-radius:10px;font-size:0;}
+.book_tab_wrap ul{display:inline-block;width:100%;text-align:center;}
+.book_tab_wrap ul li{display:inline-block;}
+.book_tab_wrap ul li span.tabwrap{display:inline-block;}
+.book_tab_wrap ul li .tab{position:relative;z-index:22;display:inline-block;float:left;margin-top:-25px;width:200px;height:48px;line-height:48px;font-size:15px;text-align:center;background:#fff;border:1px solid #555;border-bottom-right-radius:10px;border-top-right-radius:10px;color:#555}
+.book_tab_wrap ul li:first-child .tab{border-radius:0;border-bottom-left-radius:10px;border-top-left-radius:10px;}
+.book_tab_wrap ul li .tab.on{background:#555;color:#fff}
+.book_tab_wrap ul li .tab_wrap{display:inline-block;width:1000px;position:absolute;top:0;left:50%;margin-left:500px;}
+.book_tab_wrap ul li .plist_wrap{position:absolute;bottom:0;left:0;width:100%;height:340px}
+.book_tab_wrap ul li .plist_box_wrap .member_box .log_btn{margin-top:20px;}
+.book_tab_wrap ul li .plist_box_wrap .member_box .log_btn ul{width:100%;clear:both;overflow:hidden;margin:30px 0 0;}
+.book_tab_wrap ul li .plist_box_wrap .member_box .log_btn ul li{display:inline-block;text-align:center;margin-left:20px;padding-left:20px;border-left:1px solid #d5d5d5;}
+.book_tab_wrap ul li .plist_box_wrap .member_box .log_btn ul li:first-child{margin-left:0;padding-left:0;border-left:0;}
+.book_tab_wrap ul li .plist_box_wrap .member_box .log_btn ul li a{display:block;color:#fff;font-size:18px;}
+.book_tab_wrap ul li .plist_box_wrap .member_box .log_btn ul li a.find {display:inline-block;float:left;font-size: 16px;line-height:14px;color:#555;transition: all 0.3s;}
+/*.book_tab_wrap ul li .plist_box_wrap .member_box .log_btn ul li a:hover{color:#55b400;}*/
+
+/*회원가입*/
+.memberbox .box .tit.icon01{background-image:url(/nanum/site/builder/skin/common/img/join_icon01.gif);}
+.memberbox .box .tit.icon02{background-image:url(/nanum/site/builder/skin/common/img/join_icon02.gif);}
+.memberbox .box .btn a{background:#555;}
+
+/*** 본인인증 ***/
+.memberbox.ipin .box{}
+.memberbox.ipin .box .con{padding-top:30px;font-size: 17px;line-height:26px;color:#555;text-align:center;}
+.memberbox.ipin .box .btn{bottom:55px;}
+.memberbox .box .tit.icon11{background-image:url(/nanum/site/builder/skin/common/img/ipin_icon01.gif);}
+.memberbox .box .tit.icon12{background-image:url(/nanum/site/builder/skin/common/img/ipin_icon02.gif);}
+
+/*** 회원가입&본인인증 공통박스 ***/
+.member_wrap .title {font-size:38px; color:#000; text-align:center; line-height:1; letter-spacing:-0.05em; padding-bottom:40px; background:url(/nanum/site/builder/skin/common/img/member_dot.gif)no-repeat 50% 100%;}
+.member_wrap .desc { text-align:center; padding:20px 145px 50px 145px; }
+
+.memberbox{display:inline-block;width:100%;}
+.memberbox .box{position:relative;float:left;width: 298px;margin-left: 40px;padding:45px 65px;min-height:430px;border:1px solid #dfdfdf;/*transition:all 0.2s ease;-webkit-transition:all 0.2s ease;*/border-radius:20px;}
+.memberbox .box:first-child{margin-left:0;}
+.memberbox .box .tit{height:200px;border-bottom:1px dashed #ccc;font-size:28px;color:#222;text-align:center;background-repeat:no-repeat;background-position:center 56px;}
+.memberbox .box .con{padding-top:30px; text-align:center;}
+.memberbox .box .btn{position:absolute;bottom:40px;left:0;width:100%;text-align:center;}
+.memberbox .box:hover{border:1px solid #ffc601;box-shadow:8px 10px 20px rgba(0,0,0,0.2);-webkit-box-shadow:8px 10px 20px rgba(0,0,0,0.2);background:url(/nanum/site/builder/skin/common/img/join_check.gif)no-repeat 95% 20px;}
+.memberbox .box .btn .con_btn {width:282px; line-height:51px; padding:0; background:#222 !important;}
+.memberbox .box:hover .con_btn {background:#ffc601 !important;}
+
+
+/*회원가입동의*/
+.join_agree{width:100%;}
+.join_agree .area{width:100%;margin-bottom:50px;}
+.join_agree .area h3.tit{float:left;}
+.join_agree .area .check{float:right;padding-top:20px;}
+.join_agree .area .check input{vertical-align:middle;}
+.join_agree .area .check label{vertical-align:middle;}
+.join_agree .area .txt_box{clear:both;width:100%;height: 280px;padding:20px;border:1px solid #dfdfdf;border-radius:10px;overflow-y:scroll;font-size: 15px;color:#666;line-height:18px;box-sizing:border-box;}
+.join_agree .allagree{padding-bottom:40px;border-bottom:1px dashed #ccc;text-align:center;font-size:17px;color:#222;}
+.join_agree .allagree label{color:#222;}
+.join_agree .btn_w{padding:40px 0;}
+
+/*****버튼정의 *****/
+.btn_w{width:100%;padding-top:35px;text-align:center;}
+
+/***아이디비밀번호찾기***/
+.member_box .bg.idpw{top:265px;left:-68px;width:169px;height:196px;background:url(/nanum/site/builder/dir/main/img/menu730/idpw_img.png) no-repeat left top;}
+.member_box .area.line{width:500px;border-top:1px dashed #ccc;margin:40px auto 50px;}
+.member_box .area a.inp_btn{width:180px;}
+.member_box .idpw_reserv{font-size:16px;line-height:25px;padding:44px 0 24px;}
+.member_box .idpw_reserv strong{color:#000;}
+.member_box .idpw_reserv span{color:#ff3232;font-weight:600;}
+
+/*아이디비밀번호찾기 결과*/
+.member_id{margin:0 auto;width:100%;position:relative;border:1px solid #dfdfdf;text-align:center;}
+.member_id .bg{position:absolute;display:inline-block;}
+.member_id .tit{font-size:30px;color:#222;padding-top:60px;line-height:1.4;}
+.member_id .txt{font-size:15px;color:#555;padding-top:25px;}
+.member_id .area{width:300px;margin:50px auto 60px;}
+.member_id .area p{position:relative;margin-bottom:10px;}
+.member_id .area p input{width:268px;height:45px;line-height:45px;font-size:14px;padding:0 15px;border:0; background:#f5f5f5;}
+.member_id .area p input:focus{border:1px solid #222;background:#f8f8f8;}
+.member_id .area p label{position:absolute;top:0;left:16px;height:45px;line-height:45px;font-size:14px;color:#999;}
+.member_id .area input.inp_btn,
+.member_id .area a.inp_btn{display:inline-block;width:100%;padding:14px 0;line-height:normal;border:none;margin:0;color:#fff;font-size:15px;background:#555;}
+.member_id .area.line{width:500px;border-top:1px dashed #ccc;margin:40px auto 50px;}
+.member_id .area a.inp_btn{width:180px;}
+.member_id .idpw_reserv{font-size:16px;line-height:25px;padding:44px 0 24px;}
+.member_id .idpw_reserv strong{color:#000;}
+.member_id .idpw_reserv span{color:#ff3232;font-weight:600;}
+
+/***회원서비스 > 이용약관***/
+.form_argree{height: 208px;border: 1px solid #dfdfdf;background: #fff;padding: 20px;overflow-y: scroll;}
+.form_argree h5,
+.form_argree h6{margin-left:0}
+.form_argree p,
+.form_argree ul{margin:0 15px;font-size:14px;}
+.form_argree ul li{font-size:14px;}
+
+/*회원탈퇴*/
+.drop_out{width:500px;padding:160px 50px 50px 50px;margin:0 auto;text-align:center;border:1px solid #dfdfdf;background:url(/nanum/site/builder/skin/common/img/drop.gif) no-repeat center 50px;}
+.drop_out .btxt{margin-bottom:12px;font-weight:bold;font-size:25px;color:#222;}
+.drop_out .stxt{}
+.drop_out .btn{width:80%;padding-top:25px;margin:25px auto 0 auto;}
+.drop_out .btn a{background:#555;}
+
+
+/*이메일 본인인증 받기*/
+.join_popup{padding:0 15px;margin-top:30px;}
+.join_popup select{width:100px;height:33px;border-radius:0;}
+
+
+/******************************1024******************************/
+@media all and (max-width:1024px){
+
+/***로그인&아이디비밀번호찾기 공통박스***/
+.member_box{margin:60px 0 0 0;}
+
+/***로그인***/
+.book_tab_wrap{margin:40px auto;}
+
+
+/*** 본인인증 ***/
+.memberbox.ipin .box{width: 48%;min-height: 460px;box-sizing: border-box;margin-left: 4%;}
+.memberbox.ipin .box:first-child{margin-left:0;}
+.memberbox.ipin .box .con{padding-top:30px;font-size: 15px;}
+.memberbox.ipin .box .btn{bottom:30px;}
+
+
+}
+
+/******************************900******************************/
+@media all and (max-width:900px){
+
+
+/* 본인인증 */
+.memberbox.ipin .box .con br{display:none;}
+}
+
+
+/******************************767******************************/
+@media all and (max-width:767px){
+
+/***모바일에서 본인인증이 안될경우 [해결방법] 안내문구***/
+.cash_box{display:block;margin-bottom:20px;background:#fff;padding:20px;border:1px solid #ccc;background:#f9f9f9;}
+.cash_box p{padding-left:20px;font-size:15px;color:#555;letter-spacing:-0.05emb;word-break:keep-all;background:url(/nanum/site/builder/skin/common/img/noti_icon_red.gif) no-repeat left 3px;}
+.cash_box p a{cursor:pointer;}
+
+/***모바일에서 본인인증이 안될경우 [해결방법] 팝업***/
+.cash_delete_wrap{display:inline-block;}
+.cash_delete_wrap .tab_wrap{position:fixed;top:0;z-index:9;display:inline-block;width:100%;background:#5e637c;}
+.cash_delete_wrap .tab_wrap li{float:left;width:25%;text-align:center;border-left:1px solid #b0b0b2;box-sizing:border-box;}
+.cash_delete_wrap .tab_wrap li:first-child{border-left:0;}
+.cash_delete_wrap .tab_wrap li a{display:block;height:40px;line-height:40px;font-size:14px;color:#fff;letter-spacing:-0.05em;}
+.cash_delete_wrap .box{margin-top:20px;}
+.cash_delete_wrap .box img{width:100%;min-width:320px;margin-top:20px;}
+
+
+/***로그인&아이디비밀번호찾기 공통박스***/
+.member_box{padding-top:0px;word-break:keep-all;}
+.member_box .tit{font-size:20px;}
+.member_box .txt{padding:25px 30px 0;}
+.member_box .log_btn ul{margin:25px 0}
+.member_box .log_btn ul li a{padding-top:0;font-size:16px;}
+.member_box .log_btn ul li.icon01 a, .member_box .log_btn ul li.icon02 a{background-size:36px;background-position:center 15px;}
+.member_box .log_btn ul li a.find {margin-top:0;}
+
+.book_tab_wrap ul li .plist_box_wrap .member_box .log_btn ul li a.find{font-size:13px;}
+
+/* 회원가입 */
+.memberbox .box .tit {height: 25px;font-size:26px;padding-top: 10px;background-size: 220px auto;}
+.memberbox .box .tit.icon01,.memberbox .box .tit.icon02{background-size:auto 80px;}
+
+/* 본인인증 */
+.memberbox.ipin .box{width: 100%;min-height: 350px;padding: 20px;margin: 20px 0 0 0;}
+.memberbox.ipin .box .con{font-size:15px;}
+.memberbox .box .tit.icon11,.memberbox .box .tit.icon12{background-size:auto 80px;}
+
+
+    
+/***** 버튼정의 *****/
+.ndls_btn,
+.cancel_btn{margin:0 2px;padding:10px 20px;font-size:14px;}
+
+/***아이디비밀번호찾기***/
+.member_id{width:90%;padding:0 10px;box-sizing:border-box;}	
+.member_id .tit{font-size:25px;}
+.member_id .tit strong{display:block;}
+.member_id .txt{font-size:14px;word-break:keep-all;}
+.member_id .area{width:auto; box-sizing:border-box; }
+.member_id .area p input{width:100%; box-sizing: border-box;}
+.member_id .area a.inp_btn{width:100%;}
+
+/*아이디비밀번호찾기 결과*/
+.member_id .idpw_reserv{padding:35px 0 24px;}
+
+/*회원탈퇴*/
+.drop_out{width:auto;padding:150px 15px 30px 15px;}
+.drop_out .btxt{font-size:20px;}
+
+
+/*이메일 본인인증 받기*/
+.join_popup a.con_btn,
+.join_popup input.con_btn{width:48%;}
+
+/*** 회원가입&본인인증 공통박스 ***/
+.member_wrap .title {font-size:26px;}
+.member_wrap .desc {padding:20px 30px 50px 30px;}
+
+.memberbox .box:hover {background-size:20px;}
+.memberbox .box .tit{height: 130px;background-size:70px;background-position: center 56px;}
+.memberbox .box .btn .con_btn {width:80%; margin:0; line-height:45px; font-size:14px;}
+
+
+
+
+}
+
+
+/******************************640******************************/
+@media all and (max-width:640px){
+
+
+
+
+/***로그인&아이디비밀번호찾기 공통박스***/
+.member_box{height:100%;}
+.member_box .bg.login{margin-left:-95px;width:202px;height:190px;background-size:auto 190px;}
+.member_box .txt{font-size:14px;}
+.member_box .area {width:90%;}
+
+/***로그인***/
+.book_tab_wrap{width:98%;}
+
+/* 회원가입 */
+.memberbox{text-align:center;}
+.memberbox .box .tit.icon01, .memberbox .box .tit.icon02{background-size:auto 65px}
+.memberbox .box .con > ul{padding-bottom:100px;}
+
+/* 본인인증 */
+.memberbox .box .tit.icon11,.memberbox .box .tit.icon12{background-size: auto 55px;}
+
+/*회원가입동의*/
+.join_agree .area .check{padding-top:15px;}
+
+}
+
+
+/******************************480******************************/
+@media all and (max-width:480px){
+
+
+/***로그인&아이디비밀번호찾기 공통박스***/
+.member_box .tit{padding:40px 10px 0;font-size:23px;line-height:110%;}
+.member_box .tit strong{display:inline-block;width:100%;}
+.member_box .txt{padding:20px 30px 0;}
+.member_box .area p input{width:100%;height:41px;line-height:41px;box-sizing:border-box;}
+.member_box .area p label{height:41px;font-size:13px;line-height:41px;}
+.member_box .area input.inp_btn, .member_box .area a.inp_btn{line-height:40px;font-size:14px;}
+.member_box .bg.login{display:none;}
+.member_box .log_btn ul li a{font-size:13px;}
+.member_box .log_btn ul li.icon01 a, .member_box .log_btn ul li.icon02 a{background-size:30px; background-position:center 10px;}
+
+/***로그인***/
+.book_tab_wrap ul li .tab{width:130px;height:43px;line-height:43px;transition: all 0.3s;}
+
+/*아이디비밀번호찾기 결과*/
+.member_id .idpw_reserv{padding:30px 0 20px;}
+.member_id .area.line{margin:30px auto 40px;}
+.member_id .area a.inp_btn{width:100%;}
+
+/*회원가입동의*/
+.join_agree .area{margin-bottom:40px;}
+.join_agree .area h3.tit,
+.join_agree .area .check{float:none;}
+.join_agree .area .check{padding-top:12px;border:1px solid #dfdfdf;border-bottom:0;text-align:right;padding:8px 10px;border-radius:5px 5px 0 0;}
+.join_agree .area .txt_box{border-radius:0 0 10px 10px;padding:15px;}
+.join_agree .allagree{padding-bottom:30px;}
+
+
+
+
+}

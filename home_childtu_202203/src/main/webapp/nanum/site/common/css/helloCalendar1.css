@@ -1,0 +1,18 @@
+.hcTable { border-top: 1px solid #CCCCCC; border-left: 1px solid #CCCCCC; border-collapse: collapse; font-size:11px; font-family:돋움; width:190px; }
+.hcTitle { padding-left:15px; padding-right:15px; }
+.hcControlBar { font-size:13px; }
+.hcTable th { background-color:#f0efec; padding:6px 0px 3px 0px; border-right: 1px solid #DDDDDD; border-bottom: 1px solid #CCCCCC; }
+.hcTable td { padding:4px 5px 4px 5px; border-right: 1px solid #CCCCCC; border-bottom: 1px solid #CCCCCC; text-align:center; background-color:#FFFFFF; color:#626262; }
+.hcPrev,.hcNext { cursor:pointer; }
+.hcTable select { border: 1px; border-color: #C8C8C8; border-style: solid; background-color: white; font-size: 12px;
+			 color: #6C6C6C; font-family: ??,Dotum, AppleGothic, sans-serif; }
+.hcTable .mouseOver { background-color:#D9ECFF; cursor:arrow; }
+.hcTable .hcSun { color:#FF0000; }
+.hcTable .hcSat { color:#0080C0; }
+.hcTable .selectDay { background-color:#FFC8E4; }
+.hcPrev { border: 1px; border-color: #C8C8C8; border-style: solid; background-color: white; font-size: 12px; color: #6C6C6C; font-family: Dotum, AppleGothic, sans-serif; padding-top:4px; }
+.hcNext { border: 1px; border-color: #C8C8C8; border-style: solid; background-color: white; font-size: 12px; color: #6C6C6C; font-family: Dotum, AppleGothic, sans-serif; padding-top:4px; }
+.hcToday { border: 1px; border-color: #C8C8C8; border-style: solid; background-color: white; font-size: 12px; color: #6C6C6C; font-family: Dotum, AppleGothic, sans-serif; padding-top:4px; }
+.hcToday { margin-right:10px; }
+.hcTable .noSelect { background-color:#EAEAEA; }
+#sDateCal , #eDateCal { margin-bottom:-2px; }

@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="extenddao_mp">
+	<!-- 데이터 한개 가져오기 mysql -->
+	<select id="getColumn" resultType="String" parameterType="java.util.HashMap">
+		SELECT ${exColumn} FROM ${exTableName} ${exWhereQuery} ${exGroupByQuery}
+		<choose>
+			<when test="exOrderByQuery == 'random'">
+				ORDER BY rand()
+			</when>
+			<otherwise>
+				${exOrderByQuery}
+			</otherwise>
+		</choose>
+		LIMIT 0, 1
+	</select>
+	
+	<!-- 레코드 가져오기 mysql -->
+	<select id="getRecord" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+		SELECT
+		<choose>
+			<when test="exColumn != ''">
+				${exColumn}
+			</when>
+			<otherwise>
+				*
+			</otherwise>
+		</choose>
+		FROM ${exTableName} ${exWhereQuery} ${exGroupByQuery}
+		<choose>
+			<when test="exOrderByQuery == 'random'">
+				ORDER BY rand()
+			</when>
+			<otherwise>
+				${exOrderByQuery}
+			</otherwise>
+		</choose>
+		<if test="exRecordCount != 0">
+			LIMIT 0, ${exRecordCount}
+		</if>
+	</select>
+	
+	
+	
+	
+	
+	<!-- 페이지 가져오기 mysql -->
+	<select id="getPage" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+		SELECT
+		<choose>
+			<when test="exColumn != ''">
+				${exColumn}
+			</when>
+			<otherwise>
+				*
+			</otherwise>
+		</choose>
+		FROM ${exTableName} ${exWhereQuery} ${exGroupByQuery} ${exOrderByQuery}
+		LIMIT ${exStartCount}, ${exRecordCount}
+
+	</select>
+	
+	
+	
+	<!-- insert -->
+	<insert id="insert" parameterType="java.util.HashMap">
+		INSERT INTO ${exTableName}(
+		<foreach item="value" index="key" collection="_parameter.entrySet()" separator=",">
+			<choose>
+				<when test="key == 'serialVersionUID'"></when>
+				<when test="key == 'exTableName'"></when>
+				<when test="key == 'exWhereQuery'"></when>
+				<when test="key == 'exGroupByQuery'"></when>
+				<when test="key == 'exOrderByQuery'"></when>
+				<when test="key == 'exColumn'"></when>
+				<when test="key == 'exColumnNameCase'"></when>
+				<when test="key == 'exKeyColumn'"></when>
+				<when test="key == 'exRecordCount'"></when>
+				<when test="key == 'exPage'"></when>
+				<when test="key == 'exStartCount'"></when>
+				<when test="key == 'exEndCount'"></when>
+				<when test="value == null"></when>
+				<otherwise>
+					${key}
+				</otherwise>
+			</choose>
+			
+		</foreach>
+		) VALUES(
+		<foreach item="value" index="key" collection="_parameter.entrySet()" separator=",">
+			<choose>
+				<when test="key == 'serialVersionUID'"></when>
+				<when test="key == 'exTableName'"></when>
+				<when test="key == 'exWhereQuery'"></when>
+				<when test="key == 'exGroupByQuery'"></when>
+				<when test="key == 'exOrderByQuery'"></when>
+				<when test="key == 'exColumn'"></when>
+				<when test="key == 'exColumnNameCase'"></when>
+				<when test="key == 'exKeyColumn'"></when>
+				<when test="key == 'exRecordCount'"></when>
+				<when test="key == 'exPage'"></when>
+				<when test="key == 'exStartCount'"></when>
+				<when test="key == 'exEndCount'"></when>
+				<when test="value == null"></when>
+				<otherwise>
+					<choose>
+						<when test="value.length() >= 8 and value.substring(0, 8).equals('!noquot;')">${value.substring(8)}</when>
+						<otherwise>#{value}</otherwise>
+					</choose>
+				</otherwise>
+			</choose>
+		</foreach>
+		)
+	</insert>
+	
+	
+	<!-- update -->
+	<update id="update" parameterType="java.util.HashMap">
+		UPDATE ${exTableName} SET
+		<foreach item="value" index="key" collection="_parameter.entrySet()" separator=",">
+			<choose>
+				<when test="key == 'serialVersionUID'"></when>
+				<when test="key == 'exTableName'"></when>
+				<when test="key == 'exWhereQuery'"></when>
+				<when test="key == 'exGroupByQuery'"></when>
+				<when test="key == 'exOrderByQuery'"></when>
+				<when test="key == 'exColumn'"></when>
+				<when test="key == 'exColumnNameCase'"></when>
+				<when test="key == 'exKeyColumn'"></when>
+				<when test="key == 'exRecordCount'"></when>
+				<when test="key == 'exPage'"></when>
+				<when test="key == 'exStartCount'"></when>
+				<when test="key == 'exEndCount'"></when>
+				<when test="value == null"></when>
+				<otherwise>
+					<choose>
+						<when test="value.length() >= 8 and value.substring(0, 8).equals('!noquot;')">${key} = ${value.substring(8)}</when>
+						<otherwise>${key} = #{value}</otherwise>
+					</choose>
+				</otherwise>
+			</choose>
+		</foreach>
+		${exWhereQuery}
+	</update>
+	
+	
+	<!-- delete -->
+	<delete id="delete" parameterType="java.util.HashMap">
+		DELETE FROM ${exTableName} ${exWhereQuery}
+	</delete>
+	
+	<!-- query 실행 -->
+	<update id="executeQuery" parameterType="java.util.HashMap">
+		${sql}
+	</update>
+	
+	
+	
+	<!-- ########################## 부가기능시작 ##########################-->
+	
+	<!-- 테이블명 검색 카운트 -->
+	<select id="searchTableCount" resultType="int" parameterType="java.util.HashMap">
+		SELECT count(*) as cnt FROM information_schema.tables WHERE table_schema = #{db_name} and table_name = #{table_name}
+	</select>
+	
+	<!-- 통계테이블 생성 -->
+	<insert id="createVisitTable" parameterType="java.util.HashMap">
+		CREATE TABLE IF NOT EXISTS `${table_name}` (
+		 `vNum` int(4) unsigned NOT NULL AUTO_INCREMENT,
+		 `vIP` varchar(15) NOT NULL,
+		 `vDD` tinyint(4) NOT NULL,
+		 `vHH` tinyint(4) NOT NULL,
+		 `vMT` tinyint(4) NOT NULL,
+		 `vSeason` tinyint(4) NOT NULL,
+		 `vDW` tinyint(4) NOT NULL,
+		 `vBrowser` varchar(200) NOT NULL,
+		 `vOS` varchar(200) NOT NULL,
+		 `vURL` varchar(1000) NOT NULL,
+		 `vDomain` varchar(200) NOT NULL,
+		 PRIMARY KEY (`vNum`),
+		  KEY `vDD` (`vDD`,`vHH`))
+	</insert>
+	
+	<!-- 빌더사이트 통계테이블 생성 -->
+	<insert id="createBuilderSiteVisitTable" parameterType="java.util.HashMap">
+		CREATE TABLE IF NOT EXISTS `${table_name}` (
+		 `vNum` int(4) unsigned NOT NULL AUTO_INCREMENT,
+		 `vIP` varchar(15) NOT NULL,
+		 `vDD` tinyint(4) NOT NULL,
+		 `vHH` tinyint(4) NOT NULL,
+		 `vMT` tinyint(4) NOT NULL,
+		 `vSeason` tinyint(4) NOT NULL,
+		 `vDW` tinyint(4) NOT NULL,
+		 `vBrowser` varchar(200) NOT NULL,
+		 `vOS` varchar(200) NOT NULL,
+		 `vURL` varchar(1000) NOT NULL,
+		 `vDomain` varchar(200) NOT NULL,
+		 `vSite_dir` varchar(200) DEFAULT NULL,
+		 PRIMARY KEY (`vNum`),
+		 KEY `vDD` (`vDD`,`vHH`),
+		 KEY `IX_site_dir` (`vSite_dir`))
+	</insert>
+	
+	<!-- 메뉴통계테이블 생성 -->
+	<insert id="createMenuTable" parameterType="java.util.HashMap">
+		CREATE TABLE IF NOT EXISTS `${table_name}` (
+		`idx` int(11) unsigned NOT NULL AUTO_INCREMENT,
+		`page_id` int(4) NOT NULL,
+		`vDD` tinyint(4) NOT NULL,
+		`vHH` tinyint(4) NOT NULL,
+		`counter` int(11) NOT NULL DEFAULT '0',
+		`vOut` char(1) NOT NULL DEFAULT 'Y',
+		`page_codeno` varchar(30) DEFAULT NULL,
+		`mobile` varchar(1) DEFAULT NULL,
+		`site_dir` varchar(200) DEFAULT NULL,
+		PRIMARY KEY (`idx`),
+		KEY `page_id` (`page_id`,`vDD`,`vHH`,`vOut`,`mobile`),
+		KEY `IX_site_dir` (`site_dir`))
+	</insert>
+	
+	<!-- 세션 -->
+	<select id="procSessionWait" parameterType="string" resultType="java.util.HashMap">
+		CALL procSessionWait(#{session_id})
+	</select>
+	
+	
+	<!-- 테이블생성 -->
+	<insert id="createBoard" parameterType="java.util.HashMap">
+		CREATE TABLE ${a_tablename_str} (
+			b_num int(4) unsigned NOT NULL auto_increment ,
+			b_type char(1) default 'N' ,
+			b_id varchar(30) default '' ,
+			b_name varchar(30) default '' ,
+			b_pwd varchar(100) default '' ,
+			b_subject varchar(200) default '' ,
+			b_email varchar(200) default '' ,
+			b_jumin varchar(100) default '' ,
+			b_phone1 varchar(4) default '' ,
+			b_phone2 varchar(4) default '' ,
+			b_phone3 varchar(4) default '' ,
+			b_cate int(4) default '0' ,
+			b_catename varchar(100) default '' ,
+			b_noticechk char(1) default '' ,
+			b_content mediumtext ,
+			b_ip varchar(15) default '' ,
+			b_count int(4) unsigned default '0' ,
+			b_look char(1) default 'Y' ,
+			b_open char(1) default 'Y' ,
+			b_ref int(11) unsigned default '0' ,
+			b_step int(3) unsigned default '0' ,
+			b_level int(3) unsigned default '0' ,
+			b_regdate varchar(30) default '' ,
+			b_chuchun int(3) unsigned default '0' ,
+			b_sbjclr varchar(10) default '' ,
+			b_sdate varchar(10) default '' ,
+			b_edate varchar(10) default '' ,
+			b_temp1 varchar(200) default '' ,
+			b_temp2 varchar(200) default '' ,
+			b_temp3 varchar(200) default '' ,
+			b_temp4 varchar(200) default '' ,
+			b_temp5 varchar(200) default '' ,
+			b_temp6 varchar(200) default '' ,
+			b_temp7 varchar(200) default '' ,
+			b_temp8 varchar(200) default '' ,
+			b_re_buseo varchar(50) default '' ,
+			b_re_date varchar(50) default '' ,
+			b_re_state varchar(50) default '' ,
+			b_re_content text ,
+			b_file1 varchar(200) default '' ,
+			b_file2 varchar(200) default '' ,
+			b_file3 varchar(200) default '' ,
+			b_file4 varchar(200) default '' ,
+			b_file5 varchar(200) default '' ,
+			b_file6 varchar(200) default '' ,
+			b_file7 varchar(200) default '' ,
+			b_file8 varchar(200) default '' ,
+			b_file9 varchar(200) default '' ,
+			b_file10 varchar(200) default '' ,
+			b_keyword varchar(100) default '' ,
+			b_c_count int(4) default '0',
+			b_zip1 varchar(5) default '' ,
+			b_zip2 varchar(3) default '' ,
+			b_addr1 varchar(100) default '' ,
+			b_addr2 varchar(100) default '' ,
+			b_show_sdate varchar(30) default '' ,
+			b_show_edate varchar(30) default '' ,
+			b_notice_sdate varchar(20) NOT NULL DEFAULT '' ,
+			b_notice_edate varchar(20) NOT NULL DEFAULT '' ,
+			PRIMARY KEY  (b_num)
+		) ENGINE=MyISAM DEFAULT CHARSET=utf8
+	</insert>
+	
+	<!-- 전체게시물 뷰 -->
+	<insert id="createBoardTotal" parameterType="java.util.List">
+		create or replace view board_total as
+		<foreach item="board" index="key" collection="list">
+			<if test="key > 0">
+				union all
+			</if>
+			select #{board.a_num} as a_num, N#{board.a_bbsname} as a_bbsname, #{board.a_tablename} as a_tablename
+			, b_num, b_type, b_id, b_name, b_pwd
+			, b_subject, b_email, b_jumin, b_phone1, b_phone2, b_phone3
+			, b_cate, b_catename, b_noticechk, b_content, b_ip, b_count, b_look
+			, b_open, b_ref, b_step, b_level, b_regdate, b_chuchun, b_sbjclr, b_sdate, b_edate
+			, b_temp1, b_temp2, b_temp3, b_temp4, b_temp5, b_temp6, b_temp7, b_temp8, b_temp9, b_temp10
+			, b_file1, b_file2, b_file3, b_file4, b_file5, b_file6, b_file7, b_file8, b_file9, b_file10
+			, b_c_count, b_keyword
+			, b.a_pageurl
+			from ${board.a_tablename} as a left outer join board_config as b on b.a_num = #{board.a_num} where b_look = 'Y'
+		</foreach>
+	</insert>
+	<!-- 삭제게시물 뷰 -->
+	<insert id="createBoardTotalDelete" parameterType="java.util.List">
+		create or replace view board_total_delete as
+		<foreach item="board" index="key" collection="list">
+			<if test="key > 0">
+				union all
+			</if>
+			select #{board.a_num} as a_num, N#{board.a_bbsname} as a_bbsname, #{board.a_tablename} as a_tablename
+			, b_num, b_type, b_id, b_name, b_pwd
+			, b_subject, b_email, b_jumin, b_phone1, b_phone2, b_phone3
+			, b_cate, b_catename, b_noticechk, b_content, b_ip, b_count, b_look
+			, b_open, b_ref, b_step, b_level, b_regdate, b_chuchun, b_sbjclr, b_sdate, b_edate
+			, b_temp1, b_temp2, b_temp3, b_temp4, b_temp5, b_temp6, b_temp7, b_temp8, b_temp9, b_temp10
+			, b_file1, b_file2, b_file3, b_file4, b_file5, b_file6, b_file7, b_file8, b_file9, b_file10
+			, b_c_count, b_keyword
+			, b.a_pageurl
+			from ${board.a_tablename} as a left outer join board_config as b on b.a_num = #{board.a_num} where b_look = 'N'
+		</foreach>
+	</insert>
+	<!-- 관리자메인 게시물 뷰 -->
+	<insert id="createBoardTotalMain" parameterType="java.util.List">
+		create or replace view board_total_main as
+		<foreach item="board" index="key" collection="list">
+			<if test="key > 0">
+				union all
+			</if>
+			select #{board.a_num} as a_num, N#{board.a_bbsname} as a_bbsname, #{board.a_tablename} as a_tablename
+			, b_num, b_subject, b_content, b_regdate, b.a_pageurl
+			from ${board.a_tablename} as a left outer join board_config as b on b.a_num = #{board.a_num} where b_look = 'Y'
+		</foreach>
+	</insert>
+	<!-- //########################## 부가기능끝 ########################## -->
+	
+</mapper>

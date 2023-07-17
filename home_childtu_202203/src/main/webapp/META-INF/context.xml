@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- The contents of this file will be loaded for each web application -->
+<Context reloadable="true" privileged="true">
+
+    <!-- Default set of monitored resources -->
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+
+    <!-- Uncomment this to disable session persistence across Tomcat restarts -->
+    <!--
+    <Manager pathname="" />
+    -->
+
+    <!-- Uncomment this to enable Comet connection tacking (provides events
+         on session expiration as well as webapp lifecycle) -->
+    <!--
+    <Valve className="org.apache.catalina.valves.CometConnectionManagerValve" />
+    -->
+
+	<Resource
+		name="jdbc/nninc"
+		auth="Container"
+		type="javax.sql.DataSource"
+		driverClassName="com.mysql.jdbc.Driver"
+		loginTimeout="10"
+		maxWait="5000"
+		username="root"
+		password="all7one"
+		url="jdbc:mysql://114.207.113.83:3306/home_childtu_202203?autoReconnect=true"
+		maxActive="100"
+		maxIdel="5"
+		validationQuery="SELECT 1"
+		testOnBorrow="false"
+		poolPreparedStatements="true"
+	/>
+
+	<Resource
+		name="jdbc/old"
+		auth="Container"
+		type="javax.sql.DataSource"
+		driverClassName="oracle.jdbc.driver.OracleDriver"
+		loginTimeout="10"
+		maxWait="5000"
+		username="gecsweb"
+		password="web_gecs3#"
+		url="jdbc:oracle:thin:@211.253.79.2:1521:WEBDB"
+		maxActive="100"
+		maxIdel="5"
+		validationQuery="SELECT 1 FROM dual "
+		testOnBorrow="false"
+		poolPreparedStatements="true"
+	/>
+	
+	<Resource
+		name="jdbc/chid"
+		auth="Container"
+		type="javax.sql.DataSource"
+		driverClassName="net.sourceforge.jtds.jdbc.Driver"
+		loginTimeout="10"
+		maxWait="5000"
+		username="sa"
+		password="chamoMile79$@!"
+		url="jdbc:jtds:sqlserver://114.207.112.19:3442;databaseName=childtu;encrypt=true;trustServerCertificate=true;"
+		maxActive="100"
+		maxIdel="5"
+		validationQuery="SELECT 1"
+		testOnBorrow="false"
+		poolPreparedStatements="true"
+	/>
+	
+	<Resource
+		name="jdbc/chid2"
+		auth="Container"
+		type="javax.sql.DataSource"
+		driverClassName="net.sourceforge.jtds.jdbc.Driver"
+		loginTimeout="10"
+		maxWait="5000"
+		username="childtu"
+		password="xnauddntks0101"
+		url="jdbc:jtds:sqlserver://wws2-014.cafe24.com;databaseName=childtu;encrypt=true;trustServerCertificate=true;"
+		maxActive="100"
+		maxIdel="5"
+		validationQuery="SELECT 1"
+		testOnBorrow="false"
+		poolPreparedStatements="true"
+	/>
+
+
+
+</Context>
